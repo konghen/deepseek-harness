@@ -115,12 +115,12 @@ importers:
       '@types/node':
         specifier: ^22.20.1
         version: 22.20.1
-      '@types/semver':
-        specifier: ^7.8.0
-        version: 7.8.0
       '@types/papaparse':
         specifier: ^5.5.2
         version: 5.5.2
+      '@types/semver':
+        specifier: ^7.8.0
+        version: 7.8.0
       '@types/spdx-expression-parse':
         specifier: ^4.0.0
         version: 4.0.0
@@ -478,6 +478,9 @@ importers:
       commander:
         specifier: ^15.0.0
         version: 15.0.0
+      dsh-free-search:
+        specifier: file:../../packages/experimental/dsh-free-search
+        version: file:packages/experimental/dsh-free-search(@deepseek-ai/cordis@vendor+cordis)(@deepseek-ai/dsh-settings@packages+settings+settings)(@deepseek-ai/dsh-tools@packages+core+tools)(react@18.3.1)
       js-yaml:
         specifier: ^4.3.2
         version: 4.3.2
@@ -8304,6 +8307,33 @@ importers:
         specifier: ^4.3.2
         version: 4.3.2
 
+  packages/experimental/dsh-free-search:
+    dependencies:
+      '@deepseek-ai/cordis':
+        specifier: workspace:~
+        version: link:../../../vendor/cordis
+      '@deepseek-ai/dsh-client-ui-commands':
+        specifier: workspace:*
+        version: link:../../client/ui-commands
+      '@deepseek-ai/dsh-client-ui-plugin-manager':
+        specifier: workspace:*
+        version: link:../../client/ui-plugin-manager
+      '@deepseek-ai/dsh-client-ui-renderer':
+        specifier: workspace:*
+        version: link:../../client/ui-renderer
+      '@deepseek-ai/dsh-settings':
+        specifier: workspace:*
+        version: link:../../settings/settings
+      '@deepseek-ai/dsh-tools':
+        specifier: workspace:*
+        version: link:../../core/tools
+      '@deepseek-ai/schemastery':
+        specifier: link:../../../vendor/schemastery
+        version: link:../../../vendor/schemastery
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
+
   packages/experimental/hook-protocol:
     devDependencies:
       '@deepseek-ai/cordis':
@@ -15641,10 +15671,6 @@ importers:
 
 packages:
 
-  papaparse@5.5.3:
-    resolution: {integrity: sha512-5QvjGxYVjxO59MGU2lHVYpRWBBtKHnlIAcSe1uNFCkkptUh63NFRj0FJQm7nR67puEruUci/ZkjmEFrjCAyP4A==}
-
-
   '@agentclientprotocol/sdk@1.4.0':
     resolution: {integrity: sha512-/eufudw+aFY1LKLolT6yFE6UMmYRl7fMJ/DEONSIyR6wI3slHWITBsANRGqXEY8FRzqUxwh7QEaGiZHcJPVThg==}
     peerDependencies:
@@ -19891,6 +19917,33 @@ packages:
     resolution: {integrity: sha512-uBq4egWHTcTt33a72vpSG0z3HnPuIl6NqYcTrKEg2azoEyl2hpW0zqlxysq2pK9HlDIHyHyakeYaYnSAwd8bow==}
     engines: {node: '>=12'}
 
+  dsh-free-search@file:packages/experimental/dsh-free-search:
+    resolution: {directory: packages/experimental/dsh-free-search, type: directory}
+    engines: {node: '>=20'}
+    peerDependencies:
+      '@deepseek-ai/cordis': workspace:~
+      '@deepseek-ai/dsh-client-ui-commands': workspace:*
+      '@deepseek-ai/dsh-client-ui-plugin-manager': workspace:*
+      '@deepseek-ai/dsh-client-ui-renderer': workspace:*
+      '@deepseek-ai/dsh-settings': workspace:*
+      '@deepseek-ai/dsh-tools': workspace:*
+      react: ^18.2.0
+    peerDependenciesMeta:
+      '@deepseek-ai/cordis':
+        optional: true
+      '@deepseek-ai/dsh-client-ui-commands':
+        optional: true
+      '@deepseek-ai/dsh-client-ui-plugin-manager':
+        optional: true
+      '@deepseek-ai/dsh-client-ui-renderer':
+        optional: true
+      '@deepseek-ai/dsh-settings':
+        optional: true
+      '@deepseek-ai/dsh-tools':
+        optional: true
+      react:
+        optional: true
+
   dts-resolver@3.0.0:
     resolution: {integrity: sha512-1T1f+z+4tl9XD+m+0HBgWoL/nm0bOIffyWaUuUSBlFg/86IWvfx+wjNaO/ybU0AJzG9/Mi5hBUgGV6zCmWEN7Q==}
     engines: {node: ^22.18.0 || >=24.0.0}
@@ -21701,6 +21754,9 @@ packages:
   pako@1.0.11:
     resolution: {integrity: sha512-4hLB8Py4zZce5s4yd9XzopqwVv/yGNhV1Bl8NTmCq1763HeK2+EwVTv+leGeL13Dnh2wfbqowVPXCIO0z4taYw==}
 
+  papaparse@5.5.3:
+    resolution: {integrity: sha512-5QvjGxYVjxO59MGU2lHVYpRWBBtKHnlIAcSe1uNFCkkptUh63NFRj0FJQm7nR67puEruUci/ZkjmEFrjCAyP4A==}
+
   papaparse@5.7.0:
     resolution: {integrity: sha512-qBGxg/7Q3Kl9Wfhrz2Z74UnvnHTXLNG6jmKJFeBvP2+y4lV7So+7SR62+Zd47JvdrCkX+nDcnr0ObPzek/+6RA==}
 
@@ -23226,9 +23282,6 @@ packages:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
 snapshots:
-
-  papaparse@5.5.3: {}
-
 
   '@agentclientprotocol/sdk@1.4.0(zod@4.4.3)':
     dependencies:
@@ -27244,6 +27297,15 @@ snapshots:
 
   dotenv@16.6.1: {}
 
+  dsh-free-search@file:packages/experimental/dsh-free-search(@deepseek-ai/cordis@vendor+cordis)(@deepseek-ai/dsh-settings@packages+settings+settings)(@deepseek-ai/dsh-tools@packages+core+tools)(react@18.3.1):
+    dependencies:
+      '@deepseek-ai/schemastery': link:vendor/schemastery
+    optionalDependencies:
+      '@deepseek-ai/cordis': link:vendor/cordis
+      '@deepseek-ai/dsh-settings': link:packages/settings/settings
+      '@deepseek-ai/dsh-tools': link:packages/core/tools
+      react: 18.3.1
+
   dts-resolver@3.0.0(oxc-resolver@11.20.0):
     optionalDependencies:
       oxc-resolver: 11.20.0
@@ -29442,6 +29504,8 @@ snapshots:
   pako@0.2.9: {}
 
   pako@1.0.11: {}
+
+  papaparse@5.5.3: {}
 
   papaparse@5.7.0: {}
 
