@@ -1,0 +1,10 @@
+# pnpm install 生成的依赖软链（游离产物，不入库）
+node_modules/
+
+# 预编译插件的 tsdown no-op 输出目录（见 tsdown.config.ts）
+.tsdown-nop/
+
+# 关键：根 .gitignore 有全局 `lib/` 规则（TS 编译产物不入库），
+# 但本包是"预编译入仓"的第三方插件，lib/*.js 就是插件的全部运行逻辑，
+# 必须入库，否则换机 checkout 后插件是空的。这里反向排除，豁免根规则。
+!lib/
